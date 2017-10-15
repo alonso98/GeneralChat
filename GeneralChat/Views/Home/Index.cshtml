@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Чат";
+}
+
+<div class="message-box col-lg-8 col-lg-offset-2">
+    @foreach (var i in ViewBag.Messages)
+    {
+        <div class="message">
+            <b>@i.User.Name</b>
+            <small>@i.Time.ToString("t")</small>
+            <br />
+            <p>@i.Message</p>
+        </div>
+    }
+</div>
+<div class="navbar-fixed-bottom send-box col-lg-8 col-lg-offset-2">
+    <textarea rows="3" placeholder="Write your message..."></textarea>
+    <div id="send">
+        <button class="btn-default">Send</button>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery.signalR-2.2.2.min.js"></script>
+<script src="~/signalr/hubs"></script>
+<script src="~/Scripts/util.js"></script>
